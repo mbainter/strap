@@ -54,7 +54,7 @@ STDIN_FILE_DESCRIPTOR="0"
 # STRAP_GIT_EMAIL=
 # STRAP_GITHUB_USER=
 # STRAP_GITHUB_TOKEN=
-STRAP_ISSUES_URL="https://github.com/mikemcquaid/strap/issues/new"
+STRAP_ISSUES_URL="https://github.com/mbainter/strap/issues/new"
 
 STRAP_FULL_PATH="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
 
@@ -109,10 +109,10 @@ elif [ -n "$STRAP_CI" ]; then
   logn "Skipping full-disk encryption for CI"
 elif [ -n "$STRAP_INTERACTIVE" ]; then
   echo
-  log "Enabling full-disk encryption on next reboot:"
-  sudo fdesetup enable -user "$USER" \
-    | tee ~/Desktop/"FileVault Recovery Key.txt"
-  logk
+  logn "full-disk encryption is not yet enabled by JAMF!"
+#  sudo fdesetup enable -user "$USER" \
+#    | tee ~/Desktop/"FileVault Recovery Key.txt"
+#  logk
 else
   echo
   abort "Run 'sudo fdesetup enable -user \"$USER\"' to enable full-disk encryption."
